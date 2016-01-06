@@ -1,0 +1,26 @@
+.site-footer {
+  text-align: center;
+  padding: 45px 0 50px 0;
+  border-top: 1px solid #DDD;
+  position: relative;
+  background: url(/images/grunge.png) no-repeat 50% 94%;
+  &:after {
+    content: "";
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    background: url(/images/metatalk-logo-outlines.svg) center no-repeat;
+    background-size: cover;
+    left: 50%;
+    top: -18px;
+    margin-left: -18px;
+  }
+  &__icon {
+    display: inline-block;
+    text-decoration: none;
+    img {
+      width: 28px;
+      opacity: 0.4;
+    }
+  }
+}

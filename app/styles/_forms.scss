@@ -1,0 +1,38 @@
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 10px;
+  border: none;
+  width: 100%;
+  max-width: 350px;
+  color: $dark-blue;
+  &:focus {
+    outline: none;
+  }
+}
+
+.form-element {
+  padding: 5px 0;
+}
+
+.btn {
+  background: none;
+  color: #FFF;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+  line-height: 14px;
+  border: 1px solid #FFF;
+  display: inline-block;
+  padding: 10px 16px 10px 20px;
+  text-align: center;
+  border-radius: 2px;
+  &--black {
+    border-color: lighten($dark-blue,60%);
+    color: lighten($dark-blue,10%);
+    background: #FFF;
+  }
+}
+
