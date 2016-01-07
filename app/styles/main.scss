@@ -165,6 +165,13 @@ body {
   }
 }
 
+.workshop-cta__form {
+  padding: 30px 0;
+}
+
+.workshop-cta {
+  padding: 60px 0;
+}
 
 //**** WHAT ****//
 
@@ -209,6 +216,9 @@ body {
   @extend %clearfix;
   header, footer {
     @extend %article-header;
+  }
+  header {
+    padding-bottom: 20px;
   }
   &__row {
     max-width: 980px;

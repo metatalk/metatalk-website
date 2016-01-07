@@ -5,6 +5,8 @@
   width: 100%;
   @extend %clearfix;
   transition: all 0.2s linear;
+  height: 60px;
+  background: #FFF;
   &__inner {
     position: absolute;
     width: 100%;
@@ -27,7 +29,7 @@
   }
   &__logo {
     position: absolute;
-    top: 10px;
+    top: 15px;
     left: 50%;
     margin-left: -15px;
     svg {
@@ -66,6 +68,8 @@
 
   }
   @media (min-width: 768px) {
+    height: auto;
+    background: none;
     li {
       float: left;
       width: 50%;
@@ -73,12 +77,32 @@
     &__left {
       float: left;
       width: 40%;
-      padding-left: 100px;
+      padding-left: 20px;
     }
     &__right {
       float: right;
       width: 40%;
-      padding-right: 100px;
+      padding-right: 20px;
     }
+    &__item:hover span {
+      //border-bottom: 1px dotted lighten($dark-blue,50%);
+    }
+  }
+  @media (min-width: 1120px) {
+    &__left {
+      padding-left: 150px;
+    }
+    &__right {
+      padding-right: 150px;
+    }
+  }
+}
+
+.site-nav__toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  @media (min-width:768px) {
+    display: none;
   }
 }
