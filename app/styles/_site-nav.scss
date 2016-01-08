@@ -11,10 +11,14 @@
     position: absolute;
     width: 100%;
     background: $black;
-    display: none;
+    bottom: 0;
+    transition: all 0.1s linear;
+    &.is-out {
+      top: 60px;
+      bottom: auto;
+    }
     @media (min-width:768px) {
       position: static;
-      display: block;
     }
   }
   &.is-scrolled {

@@ -13,6 +13,7 @@ $grey-blue: #858996;
 @import "site-nav";
 @import "headers";
 @import "footer";
+@import "project-details";
 
 
 * {
@@ -231,6 +232,7 @@ body {
     border: 2px solid #FFF;
     p {
       max-width: 300px;
+      min-height: 90px;
       margin: 0 auto 40px auto;
     }
   }
@@ -250,6 +252,11 @@ body {
     &__col {
       width: 50%;
       float: left;
+    }
+  }
+  footer {
+    p:last-child {
+      margin-top: 30px;
     }
   }
 }

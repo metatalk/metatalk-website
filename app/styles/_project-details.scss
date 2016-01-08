@@ -1,0 +1,146 @@
+.project-detail {
+  background: $black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10000;
+  visibility: hidden;
+  backface-visibility: hidden;
+  transform: scale(0.6);
+  opacity: 0;
+  transition: all 0.4s;
+  &.is-open {
+    visibility: visible;
+    transform: scale(1);
+    opacity: 1;
+  }
+  &__overlay {
+    display: none;
+  }
+  &__images {
+    background: #FFF;
+    border: 2px solid #FFF;
+    height: 50%;
+    overflow: auto;
+    &:hover .project-detail__image:not(.is-hover) {
+      opacity: 0.5;
+      filter: grayscale(80%);
+    }
+  }
+  &__description {
+    background: $black;
+    color: #FFF;
+    height: 50%;
+    padding: 20px;
+    position: relative;
+    overflow: auto;
+    footer {
+      padding-top: 30px;
+    }
+  }
+  @media (min-width:980px) {
+    height: calc(100vh - 70px);
+    width: calc(100vw - 70px);
+    top: 35px;
+    left: 35px;
+    overflow: hidden;
+    &__images {
+      position: relative;
+      width: 65%;
+      height: 100%;
+      float: left;
+    }
+    &__description {
+      float: left;
+      width: 35%;
+      height: 100%;
+      display: table;
+      vertical-align: middle;
+      padding: 20px 60px;
+      .center {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    &__overlay {
+      @extend %overlay;
+      display: block;
+      visibility: hidden;
+      opacity: 0;
+      position: fixed;
+      z-index: 1000;
+      transition: all 0.4s;
+      .is-modal-open & {
+        visibility: visible;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.project-detail__image {
+  float: left;
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #FFF;
+  transition: opacity 0.4s;
+  &--wide {
+    width: 60%;
+    height: 60%;
+  }
+  &--small {
+    width: 40%;
+    height: 30%;
+  }
+  &--header {
+    float: none;
+    clear: both;
+    img {
+      position: static;
+      display: block;
+    }
+  }
+}
+
+.project-detail__nav {
+  background: lighten($grey-blue,35%);
+  padding: 40px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+  text-align: center;
+  display: none;
+}
+
+.is-modal-open {
+  overflow: hidden;
+}
+
+.project-detail__close {
+  color: $grey-blue;
+  font: 40px/42px arial, sans-serif;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 2px;
+  text-decoration: none;
+  top: 10px;
+  right: 10px;
+  z-index: 10000;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #FFF;
+  @media (min-width:980px) {
+    background: none;
+  }
+  &:hover {
+    transform: scale(1.15);
+  }
+}
