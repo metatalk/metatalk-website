@@ -82,6 +82,9 @@ dd {
   margin: 8px 0 20px 0;
   padding-bottom: 20px;
   border-bottom: 1px solid #F0F0F0;
+  &:last-child {
+    border: none;
+  }
 }
 
 address {
@@ -107,4 +110,18 @@ address {
     border-radius: 2px;
     font-size: 1.4rem;
   }
+}
+
+.space-top {
+  padding-top: 30px;
+}
+
+.confirm {
+  padding: 20px 40px;
+  font-weight: bold;
+  margin: 20px auto;
+  background: #A0DDAB;
+  display: none;
+  color: $dark-blue;
+  text-shadow: none;
 }

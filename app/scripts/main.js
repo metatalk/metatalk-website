@@ -7,11 +7,12 @@ $(function() {
     }
   });
 
+
   $('.site-nav__toggle').click(function(e) {
     $('.site-nav__inner').toggleClass('is-out')
   });
 
-  // onload
+
   if(document.body.clientWidth >= 768) {
     $('video').attr('autoplay', true);
   }
@@ -32,14 +33,46 @@ $(function() {
   $('.btn--project').click(function(e) {
     $('body').addClass('is-modal-open');
     var hash = $(this).attr('href').substring(2);
-    $('.project-detail#'+hash).addClass('is-open');
+    if($(this).parent().hasClass('logos__logo')) {
+      $.get('/parts/project-detail.html', function(html) {
+        $('body').append(html).find('.project-detail#'+hash).addClass('is-open');
+      });
+    } else {
+      $('.project-detail#'+hash).addClass('is-open');
+    }
+
   });
 
-  $('.project-detail__close').click(function(e) {
+  $('body').delegate('.project-detail__close','click', function(e) {
     e.preventDefault();
     history.pushState({}, '', './wat-we-doen.html');
     $('body').removeClass('is-modal-open');
     $('.project-detail').removeClass('is-open');
   });
+
+  var hashTagActive = "";
+  $(".down,#btn-down").click(function (event) {
+    if(hashTagActive != this.hash) { //this will prevent if the user click several times the same link to freeze the scroll.
+      event.preventDefault();
+      //calculate destination place
+      var dest = 0;
+      if ($(this.hash).offset().top > $(document).height() - $(window).height()) {
+        dest = $(document).height() - $(window).height();
+      } else {
+        dest = $(this.hash).offset().top;
+      }
+      //go to destination
+      $('html,body').animate({
+        scrollTop: dest
+      }, 700, 'swing');
+      hashTagActive = this.hash;
+    }
+  });
+
+  if(window.location.hash == '#form') {
+    console.log('ok');
+    $('.confirm').css('display','inline-block');
+    $('#form').hide();
+  }
 
 });

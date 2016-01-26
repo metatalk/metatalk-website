@@ -11,14 +11,17 @@
     position: absolute;
     width: 100%;
     background: $black;
-    bottom: 0;
-    transition: all 0.1s linear;
+    transition: all 0.4s linear;
+    top: 60px;
+    height: 0;
+    overflow: hidden;
     &.is-out {
-      top: 60px;
-      bottom: auto;
+      height: auto;
     }
     @media (min-width:768px) {
       position: static;
+      height: auto;
+      background: none;
     }
   }
   &.is-scrolled {

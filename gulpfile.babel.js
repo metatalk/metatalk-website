@@ -55,7 +55,7 @@ gulp.task('views', function () {
 gulp.task('html', ['views', 'styles'], () => {
   const assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
 
-return gulp.src(['app/*.html', '.tmp/*.html'])
+return gulp.src(['app/**/*.html', '.tmp/**/*.html'])
   .pipe(assets)
   .pipe($.if('*.js', $.uglify()))
   .pipe($.if('*.css', $.minifyCss({compatibility: '*'})))
